@@ -62,6 +62,17 @@ app.post("/api/create-order", async (req, res) => {
       res.status(500).json({ success: false, error: error.message });
     }
   });
+
+  app.delete("/api/orders/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await Order.findByIdAndDelete(id);
+      res.json({ message: "Order deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ error: "Error deleting order" });
+    }
+  });
+  
   
   
 
