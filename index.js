@@ -78,6 +78,11 @@ app.post("/api/create-order", async (req, res) => {
 
 app.use('/api',ordersRoutes);
 
+
+app.get("/hey", (req, res) => {
+    res.send("Hello mf");
+})
+
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
 })
